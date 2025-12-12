@@ -1,0 +1,20 @@
+---
+- name: Setup React App Directory and Clone Repo
+  hosts: aws_rhel9
+  vars:
+    target_dir: "~/mcaDemo"
+    repo_url: "https://github.com/ddoan30/reactapp-dev.git"
+
+  tasks:
+    - name: Ensure the directory "mcaDemo" exists in the home directory
+      ansible.builtin.file:
+        path: "{{ target_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Clone the React app repository into mcaDemo
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ target_dir }}"
+        version: main  # Change this if the default branch is different (e.g., master)
+        force: yes     # Overwrites local changes if they exist
