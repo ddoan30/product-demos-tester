@@ -1,6 +1,6 @@
 ---
 - name: Setup React App Directory and Clone Repo
-  hosts: "{{ _hosts | default(omit) }}"
+  hosts: aws_rhel9
   become: true
   become_user: root
   vars:
