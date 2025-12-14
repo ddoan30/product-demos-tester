@@ -7,6 +7,13 @@
     repo_url: "https://github.com/ddoan30/reactapp-dev.git"
 
   tasks:
+    - name: Ensure 'git' is installed on host
+      ansible.builtin.dnf: 
+        name: git
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
+      
     - name: Ensure the directory "mcaDemo" exists in the home directory
       ansible.builtin.file:
         path: "{{ target_dir }}"
