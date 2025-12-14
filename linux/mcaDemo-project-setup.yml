@@ -19,6 +19,8 @@
         path: "{{ target_dir }}"
         state: directory
         mode: '0755'
+        owner: "ec2-user"
+        group: "ec2-user"
 
     - name: Clone the React app repository into mcaDemo
       ansible.builtin.git:
@@ -26,3 +28,4 @@
         dest: "{{ target_dir }}"
         version: main  # Change this if the default branch is different (e.g., master)
         force: yes     # Overwrites local changes if they exist
+      become_user: "ec2-user"
