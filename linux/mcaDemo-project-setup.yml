@@ -2,7 +2,6 @@
 - name: Setup React App Directory and Clone Repo
   hosts: "{{ _hosts | default(omi) }}"
   become: true
-  become_user: root
   vars:
     target_dir: "~/mcaDemo"
     repo_url: "https://github.com/ddoan30/reactapp-dev.git"
