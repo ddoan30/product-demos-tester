@@ -26,6 +26,6 @@
       ansible.builtin.git:
         repo: "{{ repo_url }}"
         dest: "{{ target_dir }}"
-        version: main  # Change this if the default branch is different (e.g., master)
-        force: yes     # Overwrites local changes if they exist
+        version: main  
+        force: yes     
       become_user: "ec2-user"
